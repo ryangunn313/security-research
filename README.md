@@ -17,7 +17,7 @@ Maintained by **Ryan Gunn** — organized notes, weekly summaries, templates, an
 - `/tools` → helper scripts (safe to share)
 
 ## Status
-- Start here: [`/weeknotes`](./weeknotes) for the latest progress and links.
+- Start here: [`/weeknotes`](./weeknotes/index.md) for the latest progress and links.
 
 ## Responsible Use & Disclosure
 All materials are provided for **educational and ethical purposes only**.  
