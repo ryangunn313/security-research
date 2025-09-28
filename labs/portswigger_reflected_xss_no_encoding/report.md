@@ -1,4 +1,5 @@
 # Lab — Reflected XSS into HTML context with nothing encoded — 2025-09-22
+**Lab URL:** [https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)  
 **Section:** XSS  
 **Difficulty:** easy  
 **Time spent:** ~15m
