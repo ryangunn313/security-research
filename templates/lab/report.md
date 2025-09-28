@@ -1,4 +1,5 @@
 # Lab — [Lab Name] — [YYYY-MM-DD]
+**Lab URL:** [https://portswigger.net/...](https://portswigger.net/...)  
 **Section:** [XSS / SQLi / Auth / CSRF / SSRF / etc.]  
 **Difficulty:** easy | medium | hard  
 **Time spent:** ~Xm
