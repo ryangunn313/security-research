@@ -55,21 +55,46 @@ Demonstrate stored XSS: submit input that is persisted by the application and la
 Below are the screenshots captured during the exercise.
 
 
-### 01_comment_form.png
+### 01_lab_homepage.png
 
-[![01_comment_form.png](evidence/01_comment_form.png)](evidence/01_comment_form.png)
+[![01_lab_homepage.png](evidence/01_lab_homepage.png)](evidence/01_lab_homepage.png)
 
-### 01_comment_form.png
-  - `/labs/xss-stored-html/images/01_comment_form.png` — comment form (payload entered) / intercepted request.  
+### 02_submit_comment.png
 
-### 01_comment_form.png
-  - `/labs/xss-stored-html/images/02_confirmation.png` — "Thank you for your comment!" page.  
+[![02_submit_comment.png](evidence/02_submit_comment.png)](evidence/02_submit_comment.png)
 
-### 01_comment_form.png
-  - `/labs/xss-stored-html/images/03_comments_rendered.png` — comments list showing stored comment.  
+### 03_comment_confirmation.png
 
-### 01_comment_form.png
-  - `/labs/xss-stored-html/images/04_burp_proxy_post.png` — Burp Proxy capture showing `POST /post/comment` with csrf and payload.  
+[![03_comment_confirmation.png](evidence/03_comment_confirmation.png)](evidence/03_comment_confirmation.png)
 
-### 01_comment_form.png
-  - `/labs/xss-stored-html/images/05_repeater_request.png` — Repeater request used to replay the captured submission. 
+### 04_comment_display.png
+
+[![04_comment_display.png](evidence/04_comment_display.png)](evidence/04_comment_display.png)
+
+### 05_burp_proxy_http_history.png
+
+[![05_burp_proxy_http_history.png](evidence/05_burp_proxy_http_history.png)](evidence/05_burp_proxy_http_history.png)
+
+### 06_burp_repeater_raw_request.png
+
+[![06_burp_repeater_raw_request.png](evidence/06_burp_repeater_raw_request.png)](evidence/06_burp_repeater_raw_request.png)
+
+### 07_burp_repeater_html_injection.png
+
+[![07_burp_repeater_html_injection.png](evidence/07_burp_repeater_html_injection.png)](evidence/07_burp_repeater_html_injection.png)
+
+### 08_burp_repeater_plain_request.png
+
+[![01_lab_homepage.png](evidence/08_burp_repeater_plain_request.png)](evidence/08_burp_repeater_plain_request.png)
+
+### 09_burp_repeater_error.png
+
+[![09_burp_repeater_error.png](evidence/09_burp_repeater_error.png)](evidence/09_burp_repeater_error.png)
+
+### 10_stored_xss_executed.png
+
+[![10_stored_xss_executed.png](evidence/10_stored_xss_executed.png)](evidence/10_stored_xss_executed.png)
+
+### 11_lab_solved.png
+
+[![11_lab_solved.png](evidence/11_lab_solved.png)](evidence/11_lab_solved.png)
