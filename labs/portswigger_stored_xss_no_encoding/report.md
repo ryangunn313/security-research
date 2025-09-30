@@ -83,18 +83,14 @@ Below are the screenshots captured during the exercise.
 
 [![07_burp_repeater_html_injection.png](evidence/07_burp_repeater_html_injection.png)](evidence/07_burp_repeater_html_injection.png)
 
-### 08_burp_repeater_plain_request.png
+### 08_burp_repeater_error.png
 
-[![01_lab_homepage.png](evidence/08_burp_repeater_plain_request.png)](evidence/08_burp_repeater_plain_request.png)
+[![08_burp_repeater_error.png](evidence/08_burp_repeater_error.png)](evidence/08_burp_repeater_error.png)
 
-### 09_burp_repeater_error.png
+### 09_stored_xss_executed.png
 
-[![09_burp_repeater_error.png](evidence/09_burp_repeater_error.png)](evidence/09_burp_repeater_error.png)
+[![09_stored_xss_executed.png](evidence/09_stored_xss_executed.png)](evidence/09_stored_xss_executed.png)
 
-### 10_stored_xss_executed.png
+### 10_lab_solved.png
 
-[![10_stored_xss_executed.png](evidence/10_stored_xss_executed.png)](evidence/10_stored_xss_executed.png)
-
-### 11_lab_solved.png
-
-[![11_lab_solved.png](evidence/11_lab_solved.png)](evidence/11_lab_solved.png)
+[![10_lab_solved.png](evidence/10_lab_solved.png)](evidence/10_lab_solved.png)
