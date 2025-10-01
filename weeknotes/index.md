@@ -12,6 +12,12 @@ Each entry shows a weekly milestone; linked weeks contain full notes.
 - [**Week 1 — Environment setup & first tools**](./2025-09-week1.md)  
   Install WSL2/Kali, essential packages, browser proxy setup, and quick Burp/curl interception checks.
 
+- [**Week 2 — Templates & first XSS labs (completed)**](./2025-09-week2.md)  
+  Built reusable lab/weekly templates, completed reflected & stored XSS labs, and documented solutions.
+
+- [**Week 3 — Continuing XSS labs (in progress)**](./2025-09-week3.md) *(note: not yet created)*  
+  Working through more PortSwigger XSS scenarios, adding screenshots, PoCs, and deep-dive notes.
+  
 - Week 2 — Recon basics *(coming soon)*  
   Subdomain discovery, passive vs active recon, amass/subfinder, and initial nmap/masscan sweeps.
 
