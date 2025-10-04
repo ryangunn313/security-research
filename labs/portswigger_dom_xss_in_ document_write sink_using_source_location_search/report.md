@@ -1,4 +1,4 @@
-# Lab — DOM XSS in `document.write` sink using source `location.search` — 2025-09-30
+# Lab — DOM XSS in `document.write` sink using source `location.search` — 2025-10-02
 **Lab URL:** https://portswigger.net/web-security/cross-site-scripting/dom-based/dom-write-using-location-search  
 **Section:** XSS / DOM XSS  
 **Difficulty:** Easy  
@@ -21,7 +21,7 @@ The lab tests whether user-controlled data from `window.location.search` is writ
 
 ## 🔍 Steps Taken (concise)
 1. **Recon:** Visited the blog search page and performed a search for `ryangunn313` to confirm `?search=...` appears in the URL and that the page shows "0 search results for 'ryangunn313'". (See screenshot `01_search_page.png`.)  
-2. **Inspect:** Loaded the page with Burp capturing the request to `/` with `?search=ryangunn313`. Examined the page source/JS and found a `trackSearch(query)` function that calls `document.write('<img src="/resources/images/tracker.gif?searchTerms='+query+'">');` — i.e., it uses `location.search` → `URLSearchParams(...).get('search')` → `document.write(...)`. (See `03_burp_response_source.png`.)  
+2. **Inspect:** Loaded the page with Burp capturing the request to `/` with `?search=ryangunn313`. Examined the page source/JS and found a `trackSearch(query)` function that calls `document.write('<img src="/resources/images/tracker.gif?searchTerms='+query+'">');` — i.e., it uses `location.search` → `URLSearchParams(...).get('search')` → `document.write(...)`. (See `03_burp_proxy_http_history.png` and `06_devtools_inspection.png`.)  
 3. **Payloads tried:** Tested simple characters like quotes and attribute-like values to see where injection is possible: `"+bgcolor="#ff0000`, then `"+onload="javascript:alert(1)`.  
 4. **Bypass/technique:** The sink is `document.write()` injecting into HTML markup. Closing the existing attribute/element context and injecting an `onload` handler on an `img` tag worked. The payload was URL-encoded in the `search` query string to reach the `document.write()` content.  
 5. **Final payload & injection point (sanitized):**  
@@ -61,55 +61,75 @@ A JavaScript `alert()` executed in the page context (DOM XSS) after the crafted 
 ---
 
 ## 📂 Artifacts (screenshots / evidence)
-Below are the screenshots captured during the exercise. Each image is shown inline with a short description.
+Below are the screenshots captured during the exercise. Each image is shown inline with a short description. Place these images in an `evidence/` folder next to this markdown file.
+
+> **Note:** I didn't find `11_solved_page.png` in the evidence list you uploaded. If you add that file to the `evidence/` folder later, the markdown will render it automatically under the "12_solved_page.png" slot (or you can rename it to `12_solved_page.png` to match).
+
+---
 
 ### 01_search_page.png  
 *Initial blog search page with `ryangunn313` in the search box (UI).*  
 [![01_search_page.png](evidence/01_search_page.png)](evidence/01_search_page.png)
 
-### 02_burp_http_history.png  
-*Burp Proxy → HTTP history entry for the GET request with `?search=ryangunn313`.*  
-[![02_burp_http_history.png](evidence/02_burp_http_history.png)](evidence/02_burp_http_history.png)
+---
 
-### 03_burp_response_source.png  
-*Burp response panel showing HTML/JS source where `trackSearch()` and `document.write()` appear.*  
-[![03_burp_response_source.png](evidence/03_burp_response_source.png)](evidence/03_burp_response_source.png)
+### 02_search_page_results.png  
+*Search results page showing "0 search results for 'ryangunn313'".*  
+[![02_search_page_results.png](evidence/02_search_page_results.png)](evidence/02_search_page_results.png)
 
-### 04_repeater_request.png  
-*Repeater request logged for the `?search=...` request (request raw view).*  
-[![04_repeater_request.png](evidence/04_repeater_request.png)](evidence/04_repeater_request.png)
+---
 
-### 05_repeater_response_source.png  
-*Repeater response showing HTML snippet (script / `document.write` call).*  
-[![05_repeater_response_source.png](evidence/05_repeater_response_source.png)](evidence/05_repeater_response_source.png)
+### 03_burp_proxy_http_history.png  
+*Burp Proxy → HTTP history entry for the GET request with `?search=ryangunn313`. (Request + response visible.)*  
+[![03_burp_proxy_http_history.png](evidence/03_burp_proxy_http_history.png)](evidence/03_burp_proxy_http_history.png)
 
-### 06_devtools_dom_before_payload.png  
-*Chrome DevTools Elements view before injection (shows `img src="/resources/images/tracker.gif?searchTerms=ryangunn313"`).*  
-[![06_devtools_dom_before_payload.png](evidence/06_devtools_dom_before_payload.png)](evidence/06_devtools_dom_before_payload.png)
+---
 
-### 07_injected_test_input_devtools.png  
-*DevTools showing the search input containing test injection string (raw).*  
-[![07_injected_test_input_devtools.png](evidence/07_injected_test_input_devtools.png)](evidence/07_injected_test_input_devtools.png)
+### 04_burp_repeater.png  
+*Burp Repeater view for the request (raw request visible in the left pane).*  
+[![04_burp_repeater.png](evidence/04_burp_repeater.png)](evidence/04_burp_repeater.png)
 
-### 08_encoded_payload_in_url.png  
-*Browser address bar showing the URL-encoded attack payload in `search` query.*  
-[![08_encoded_payload_in_url.png](evidence/08_encoded_payload_in_url.png)](evidence/08_encoded_payload_in_url.png)
+---
 
-### 09_devtools_injected_input.png  
-*DevTools showing the injected/created HTML after `document.write` (injected attribute present).*  
-[![09_devtools_injected_input.png](evidence/09_devtools_injected_input.png)](evidence/09_devtools_injected_input.png)
+### 05_burp_repeater_results.png  
+*Burp Repeater response showing HTML/JS where `trackSearch()` / `document.write()` are present.*  
+[![05_burp_repeater_results.png](evidence/05_burp_repeater_results.png)](evidence/05_burp_repeater_results.png)
 
-### 10_injected_input_inside_search_box.png  
-*Search box showing the visible (unencoded) input that includes the injected fragment.*  
-[![10_injected_input_inside_search_box.png](evidence/10_injected_input_inside_search_box.png)](evidence/10_injected_input_inside_search_box.png)
+---
 
-### 11_browser_alert.png  
+### 06_devtools_inspection.png  
+*Chrome DevTools Elements view showing the `document.write` sink and current DOM (before injection).*  
+[![06_devtools_inspection.png](evidence/06_devtools_inspection.png)](evidence/06_devtools_inspection.png)
+
+---
+
+### 07_payload_in_search_box.png  
+*Search box populated with the test payload before encoding (visible to the user).*  
+[![07_payload_in_search_box.png](evidence/07_payload_in_search_box.png)](evidence/07_payload_in_search_box.png)
+
+---
+
+### 08_devtools_injected_input.png  
+*DevTools showing the injected markup after `document.write` (attribute injection visible).*  
+[![08_devtools_injected_input.png](evidence/08_devtools_injected_input.png)](evidence/08_devtools_injected_input.png)
+
+---
+
+### 09_executable_payload_in_search_box.png  
+*Search box showing the executable payload string (after decoding/processing).*  
+[![09_executable_payload_in_search_box.png](evidence/09_executable_payload_in_search_box.png)](evidence/09_executable_payload_in_search_box.png)
+
+---
+
+### 10_browser_alert.png  
 *Browser alert dialog triggered by the XSS (proof of execution).*  
-[![11_browser_alert.png](evidence/11_browser_alert.png)](evidence/11_browser_alert.png)
+[![10_browser_alert.png](evidence/10_browser_alert.png)](evidence/10_browser_alert.png)
 
-### 12_solved_page.png  
+---
+
+### 11_solved_page.png 
 *Final solved lab page showing success banner, injected payload visible in page and DevTools.*  
-[![12_solved_page.png](evidence/12_solved_page.png)](evidence/12_solved_page.png)
+[![11_solved_page.png](evidence/11_solved_page.png)](evidence/11_solved_page.png)
 
 
 
