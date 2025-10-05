@@ -15,7 +15,7 @@ Each entry shows a weekly milestone; linked weeks contain full notes.
 - [**Week 2 — Templates & XSS labs (completed)**](./2025-09-week2.md)  
   Built reusable lab/weekly templates, completed reflected & stored XSS labs, and documented solutions.
 
-- [**Week 3 — Continuing XSS labs (in progress)**](./2025-09-week3.md) *(note: not yet created)*  
+- [**Week 3 — Continuing XSS labs (in progress)**](./2025-10-week3.md) *(note: not yet created)*  
   Working through more PortSwigger XSS scenarios, adding screenshots, PoCs, and deep-dive notes.
 
 - Week 2 — Recon basics *(coming soon)*  
