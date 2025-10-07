@@ -12,7 +12,7 @@ Maintained by **Ryan Gunn** — organized notes, weekly summaries, templates, an
 
 ## Structure
 - `/labs` → sanitized writeups and small demos  
-- `/weeknotes` → weekly journal summaries (public)  
+- [`/weeknotes`](./weeknotes/index.md) → weekly journal summaries (public)  
 - `/templates` → report template, evidence checklist  
 - `/tools` → helper scripts (safe to share)
 
