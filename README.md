@@ -14,7 +14,7 @@ Maintained by **Ryan Gunn** — organized notes, weekly summaries, templates, an
 - [`/labs`](./labs/index.md) → sanitized writeups and small demos  
 - [`/weeknotes`](./weeknotes/index.md) → weekly journal summaries  
 - `/templates` → report template, evidence checklist  
-- []`/tools`](./tools/index.md) → helper scripts
+- [`/tools`](./tools/index.md) → helper scripts
 
 ## Status
 - Start here: [`/weeknotes`](./weeknotes/index.md) for the latest progress and links.
