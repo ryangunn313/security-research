@@ -11,10 +11,10 @@ Maintained by **Ryan Gunn** — organized notes, weekly summaries, templates, an
 > For private research notes, full scripts, or consulting inquiries, contact **[ryangunn313@gmail.com](mailto:ryangunn313@gmail.com)**.
 
 ## Structure
-- `/labs` → sanitized writeups and small demos  
-- [`/weeknotes`](./weeknotes/index.md) → weekly journal summaries (public)  
+- [`/labs`](./labs/index.md) → sanitized writeups and small demos  
+- [`/weeknotes`](./weeknotes/index.md) → weekly journal summaries  
 - `/templates` → report template, evidence checklist  
-- `/tools` → helper scripts (safe to share)
+- []`/tools`](./tools/index.md) → helper scripts
 
 ## Status
 - Start here: [`/weeknotes`](./weeknotes/index.md) for the latest progress and links.
